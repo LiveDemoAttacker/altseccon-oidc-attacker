@@ -1,0 +1,10 @@
+{
+  "name": "cloud-vault",
+  "version": "1.0.0",
+  "description": "Demo app for AltSecCon CI/CD Heist talk - benign victim-side package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Running unit tests... Done.\" && exit 0"
+  },
+  "license": "MIT"
+}

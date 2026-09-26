@@ -1,0 +1,16 @@
+﻿name: Unsafe pull_request_target pattern (REFERENCE ONLY)
+
+# This file is deliberately non-runnable. It documents the dangerous
+# combination discussed in the talk without granting id-token: write,
+# exposing secrets, or checking out an untrusted PR in a privileged job.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reference-only:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Reference only; use the local synthetic demo instead."
