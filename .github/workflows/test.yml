@@ -1,0 +1,20 @@
+name: CI (safe PR tests)
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # Grants OIDC minting capability
+      contents: read
+    steps:
+      # VULNERABILITY: Checking out untrusted PR code into a privileged workflow
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      # EXPLOITATION POINT: Runs build scripts controlled by the incoming PR
+      - run: npm test  
