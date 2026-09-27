@@ -14,6 +14,7 @@ jobs:
       # VULNERABILITY: Checking out untrusted PR code into a privileged workflow
       - uses: actions/checkout@v4
         with:
+          allow-unsafe-pr-checkout: true
           ref: ${{ github.event.pull_request.head.sha }}
 
       # EXPLOITATION POINT: Runs build scripts controlled by the incoming PR
